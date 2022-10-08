@@ -21,7 +21,7 @@ def forwarder(update, context):
     conn.commit()
 
     for t in tags:
-        cur.execute("""INSERT INTO tags VALUES (NULL, ?, ?)""", (id_post, t))
+        cur.execute("INSERT INTO tags VALUES (NULL, ?, ?, ?)", (id_post, t, time.time()))
         conn.commit()
 
 

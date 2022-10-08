@@ -21,7 +21,7 @@ def get_tgs():
 @app.route('/get_text/', methods=['GET'])
 def get_txts():
     tag = request.args.get('tag')
-    res = cur.execute("SELECT post_id FROM tags WHERE tag = ?", (tag, ))
+    res = cur.execute("SELECT post_id FROM tags WHERE tag = ? ORDER BY date DESC", (tag, ))
     result_id = res.fetchall()
     lst = []
     for i in result_id:
